@@ -25,12 +25,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "db.json", "input": "./", "output": "./assets/" }
             ],
             "styles": [
+              "node_modules/material-icons/iconfont/material-icons.css",
               "src/styles.scss"
             ],
             "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "allowedCommonJsDependencies": [
               "lodash"
             ]

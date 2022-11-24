@@ -1,0 +1,34 @@
+@import '_styles';
+
+.toolbar {
+  justify-content: center;
+  background: $gray;
+  height: 5rem;
+  gap: 5rem;
+}
+
+.icon-button {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 10rem;
+  color: $black;
+  background-color: transparent;
+  border: 0.0625rem solid $green;
+  cursor: pointer;
+
+  &.active {
+    background-color: $green;
+  }
+
+  &.mat-icon-button {
+    border-radius: 0;
+    line-height: normal;
+  }
+
+  .icon-button-value {
+
+  }
+}
