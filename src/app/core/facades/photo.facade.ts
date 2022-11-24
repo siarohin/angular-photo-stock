@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {delay, map} from 'rxjs/operators';
+import {delay, map, tap} from 'rxjs/operators';
 import {IPhotoResponse} from "../models";
-import {PhotoService} from "../services";
+import {PhotoService, SpinnerService} from "../services";
 
 /** Emulate real-world API with random delay of range in ms **/
 const MIN_DELAY = 200;
-const MAX_DELAY = 300;
+const MAX_DELAY = 1000;
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotoFacade {
-  constructor(private photoService: PhotoService) {}
+  constructor(private photoService: PhotoService, private spinnerService: SpinnerService) {}
 
   // NOTE: Emulate real-world request for getting data in the range
   public getSet(from: number, to: number): Observable<IPhotoResponse> {
@@ -20,7 +20,12 @@ export class PhotoFacade {
   }
 
   public get(): Observable<IPhotoResponse> {
-    return this.photoService.get().pipe(delay(this.generateRandomDelay()));
+    return this.photoService.get().pipe(
+      // NOTE: With real-world request we may move spinner into interceptor
+      tap(() => this.spinnerService.showSpinner()),
+      delay(this.generateRandomDelay()),
+      tap(() => this.spinnerService.hideSpinner()),
+    );
   }
 
   private generateRandomDelay(): number {

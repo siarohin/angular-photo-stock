@@ -1,11 +1,12 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AppStoreModule } from './core';
-import { SharedModule } from './modules';
+import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {AppStoreModule} from './core';
+import {SharedModule, SpinnerModule} from './modules';
+import {InterceptorsModule} from "./core/interceptors";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { SharedModule } from './modules';
     HttpClientModule,
     AppRoutingModule,
     AppStoreModule,
-    SharedModule
+    InterceptorsModule,
+    SharedModule,
+    SpinnerModule
   ],
   bootstrap: [AppComponent]
 })

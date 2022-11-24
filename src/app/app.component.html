@@ -2,3 +2,4 @@
 <div class="content">
   <router-outlet></router-outlet>
 </div>
+<app-spinner *ngIf="spinnerService.isVisible$ | async"></app-spinner>
