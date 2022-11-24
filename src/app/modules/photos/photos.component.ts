@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {take} from 'rxjs/operators';
-import {IPhoto, IPhotoResponse, PhotoFacade} from '../../core';
+import {FavoritesStoreFacade, IPhoto, IPhotoResponse, PhotoFacade} from '../../core';
 import {IntersectionStatus} from '../shared';
+import {Subscription} from 'rxjs';
 
 const LIMIT = 10;
 
@@ -10,16 +11,30 @@ const LIMIT = 10;
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.scss']
 })
-export class PhotosComponent {
+export class PhotosComponent implements OnInit, OnDestroy {
+  private photosMap: Map<string, IPhoto> = new Map();
+  private subscription: Subscription;
   private to: number;
   private lastId: number;
   private visibilityStatus: {[key: number]: IntersectionStatus} = {};
+  private favorites: IPhoto[] = [];
+
   public photos: IPhoto[] = [];
 
-  constructor(private photoFacade: PhotoFacade) {}
+  constructor(private photoFacade: PhotoFacade, private favoritesStoreFacade: FavoritesStoreFacade) {}
 
   public ngOnInit(): void {
     this.load(0, LIMIT);
+    this.favoritesStoreFacade.loadFavorites();
+    this.subscription = this.favoritesStoreFacade.photos$.subscribe((favorites: IPhoto[]) => {
+      this.favorites = [...favorites];
+    });
+  }
+
+  public ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   public onVisibilityChanged(id: number, status: IntersectionStatus): void {
@@ -33,6 +48,34 @@ export class PhotosComponent {
     }
   }
 
+  public updateFavorites(photo: IPhoto): void {
+    if (photo.isFavorite) {
+      this.favoritesStoreFacade.deleteFavorites(photo);
+      this.setPhotosMap(photo.id, { ...photo, isFavorite: false });
+    } else {
+      this.favoritesStoreFacade.addFavorites(photo);
+      this.setPhotosMap(photo.id, { ...photo, isFavorite: true });
+    }
+  }
+
+  public navigateToDetails(photo: IPhoto): void {
+    // TODO: TBD
+  }
+
+  public trackByFn(_: number, item: IPhoto): string {
+    return item.id;
+  }
+
+  private load(from: number, to: number): void {
+    this.to = to;
+    this.photoFacade.getSet(from, to).pipe(take(1)).subscribe((resp: IPhotoResponse) => {
+      this.lastId = resp.count;
+      resp.data.forEach((photo: IPhoto) => {
+        this.setPhotosMap(photo.id, { ...photo, isFavorite: this.hasFavorites(photo) });
+      });
+    });
+  }
+
   private canProcess(): boolean {
     return this.photos.length !== this.lastId;
   }
@@ -42,11 +85,12 @@ export class PhotosComponent {
     return index > this.lastId ? this.lastId : index;
   }
 
-  private load(from: number, to: number): void {
-    this.to = to;
-    this.photoFacade.getSet(from, to).pipe(take(1)).subscribe((resp: IPhotoResponse) => {
-      this.lastId = resp.count;
-      this.photos = [...this.photos, ...resp.data];
-    });
+  private hasFavorites(photo: IPhoto): boolean {
+    return this.favorites.some((value: IPhoto) => value.id === photo.id);
+  }
+
+  private setPhotosMap(id: string, photo: IPhoto) {
+      this.photosMap.set(id, photo);
+      this.photos = Array.from(this.photosMap.values());
   }
 }

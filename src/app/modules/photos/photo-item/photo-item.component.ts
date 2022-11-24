@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {IPhoto} from "../../../core";
 
 @Component({
@@ -19,5 +19,16 @@ export class PhotoItemComponent {
 
   public get photo(): IPhoto {
     return this._photo;
+  }
+
+  @Output() public onFavorites = new EventEmitter<IPhoto>();
+  @Output() public onDetails = new EventEmitter<IPhoto>();
+
+  public onFavoritesClick(): void {
+    this.onFavorites.emit(this.photo);
+  }
+
+  public onDetailsClick(): void {
+    this.onDetails.emit(this.photo);
   }
 }

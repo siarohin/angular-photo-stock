@@ -3,5 +3,6 @@ export interface IPhoto {
   path: {
     medium: string,
     large: string
-  }
+  },
+  isFavorite?: boolean;
 }

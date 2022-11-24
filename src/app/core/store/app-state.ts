@@ -1,3 +1,5 @@
+import {FavoritesState} from './favorites';
+
 export interface AppState {
-  common: any;
+  favorites: FavoritesState;
 }

@@ -1,6 +1,9 @@
-<app-photo-item *ngFor="let photo of photos; let i = index;"
+<app-photo-item *ngFor="let photo of photos; trackBy: trackByFn; let i = index;"
                 intersectionObserver
                 [photo]="photo"
                 [intersectionDebounce]="0"
-                (visibilityChange)="onVisibilityChanged(i + 1, $event)">
+                (visibilityChange)="onVisibilityChanged(i + 1, $event)"
+                (onFavorites)="updateFavorites($event)"
+                (onDetails)="navigateToDetails($event)"
+                >
 </app-photo-item>
