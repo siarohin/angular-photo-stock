@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {IPhoto} from "../models";
+import {IPhotoResponse} from "../models";
 import {BASE_URL} from "../../constants";
 
 @Injectable({
@@ -10,7 +10,7 @@ import {BASE_URL} from "../../constants";
 export class PhotoService {
   constructor(private http: HttpClient) {}
 
-  public get(): Observable<IPhoto[]> {
-    return this.http.get<Array<IPhoto>>(`${BASE_URL}/assets/db.json`);
+  public get(): Observable<IPhotoResponse> {
+    return this.http.get<IPhotoResponse>(`${BASE_URL}/assets/db.json`);
   }
 }

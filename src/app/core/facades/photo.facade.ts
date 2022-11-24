@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {delay, map} from 'rxjs/operators';
-import {IPhoto} from "../models";
+import {IPhotoResponse} from "../models";
 import {PhotoService} from "../services";
 
 /** Emulate real-world API with random delay of range in ms **/
@@ -15,11 +15,11 @@ export class PhotoFacade {
   constructor(private photoService: PhotoService) {}
 
   // NOTE: Emulate real-world request for getting data in the range
-  public getSet(from: number, to: number): Observable<IPhoto[]> {
-    return this.get().pipe(map((photos: IPhoto[]) => photos.slice(from, to)));
+  public getSet(from: number, to: number): Observable<IPhotoResponse> {
+    return this.get().pipe(map((resp: IPhotoResponse) => ({ ...resp, data: resp.data.slice(from, to) })));
   }
 
-  public get(): Observable<IPhoto[]> {
+  public get(): Observable<IPhotoResponse> {
     return this.photoService.get().pipe(delay(this.generateRandomDelay()));
   }
 
