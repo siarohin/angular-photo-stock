@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {Subscription} from "rxjs";
-import {FavoritesStoreFacade, IPhoto, PhotoFacade} from "../../../core";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { FavoritesStoreFacade, IPhoto, PhotoFacade } from '../../../core';
 
 @Component({
   selector: 'app-photo-details',

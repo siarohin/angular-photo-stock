@@ -1,10 +1,10 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {EffectsModule} from '@ngrx/effects';
-import {StoreModule} from '@ngrx/store';
-import {FavoritesEffects} from './favorites.effects';
-import {FavoritesStoreFacade} from './favorites-store.facade';
-import {favoritesReducers} from './favorites.reducers';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { FavoritesEffects } from './favorites.effects';
+import { FavoritesStoreFacade } from './favorites-store.facade';
+import { favoritesReducers } from './favorites.reducers';
 
 @NgModule({
   imports: [

@@ -1,6 +1,6 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {debounceTime, publishReplay, refCount, takeUntil} from 'rxjs/operators';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { debounceTime, share, takeUntil } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +16,7 @@ export class SpinnerService implements OnDestroy {
       // debounceTime using to fix error ExpressionChangedAfterItHasBeenCheckedError
       debounceTime(100),
       takeUntil(this.destroySubj),
-      publishReplay(1),
-      refCount(),
+      share()
     );
   }
 

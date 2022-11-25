@@ -1,9 +1,6 @@
-import {createAction, props} from '@ngrx/store';
-import {IPhoto} from '../../models';
+import { createAction, props } from '@ngrx/store';
+import { IPhoto } from '../../models';
 
-/**
- * Favorites state actions
- */
 export const loadFavorites = createAction('[Favorites] LOAD_FAVORITES');
 export const loadFavoritesSuccess = createAction('[Favorites] LOAD_FAVORITES_SUCCESS', props<{ photos: IPhoto[] }>());
 

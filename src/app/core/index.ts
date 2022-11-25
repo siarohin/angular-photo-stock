@@ -1,4 +1,5 @@
 export * from './facades';
-export * from './store';
-export * from './services';
+export * from './interceptors';
 export * from './models';
+export * from './services';
+export * from './store';

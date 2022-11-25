@@ -1,8 +1,8 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {IPhotoResponse} from "../models";
-import {BASE_URL} from "../../constants";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPhotoResponse } from '../models';
+import { BASE_URL } from '../../constants';
 
 @Injectable({
   providedIn: 'root',

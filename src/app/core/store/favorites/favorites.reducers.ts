@@ -1,7 +1,7 @@
-import {Action, ActionReducer, createReducer, on} from '@ngrx/store';
-import {IPhoto} from '../../models';
+import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
+import { IPhoto } from '../../models';
 import * as FavoritesActions from './favorites.actions';
-import {FavoritesState, initialFavoritesState} from './favorites.state';
+import { FavoritesState, initialFavoritesState } from './favorites.state';
 
 const reducer: ActionReducer<FavoritesState> = createReducer(
   initialFavoritesState,

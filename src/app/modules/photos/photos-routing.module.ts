@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PhotosComponent} from './photos.component';
-import {Path} from "../../constants";
-import {PhotoDetailsComponent} from "./photo-details";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PhotosComponent } from './photos.component';
+import { Path } from '../../constants';
+import { PhotoDetailsComponent } from './photo-details';
 
 const routes: Routes = [
   {
