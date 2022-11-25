@@ -2,12 +2,12 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
 import {IPhoto} from "../../../core";
 
 @Component({
-  selector: 'app-photo-item',
-  templateUrl: './photo-item.component.html',
-  styleUrls: ['./photo-item.component.scss'],
+  selector: 'app-favorite-item',
+  templateUrl: './favorite-item.component.html',
+  styleUrls: ['./favorite-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PhotoItemComponent {
+export class FavoriteItemComponent {
   private _photo: IPhoto;
   public photoPath: string;
 
@@ -21,9 +21,9 @@ export class PhotoItemComponent {
     return this._photo;
   }
 
-  @Output() public updateFavorites = new EventEmitter<IPhoto>();
+  @Output() public navigate = new EventEmitter<IPhoto>();
 
   public onClick(): void {
-    this.updateFavorites.emit(this.photo);
+    this.navigate.emit(this.photo);
   }
 }
