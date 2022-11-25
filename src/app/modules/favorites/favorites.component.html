@@ -1,2 +1,4 @@
-favorites
-<router-outlet></router-outlet>
+<app-favorite-item *ngFor="let photo of photos$ | async"
+                   [photo]="photo"
+                   (navigate)="navigate($event)">
+</app-favorite-item>

@@ -1,0 +1,16 @@
+@import '_styles';
+
+:host {
+  position: relative;
+}
+
+.favorite {
+  width: 7.5rem;
+  height: 15rem;
+  background-size: cover;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
