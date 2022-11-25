@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { SpinnerComponent } from './spinner.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SpinnerComponent', () => {
   let component: SpinnerComponent;
@@ -8,6 +9,7 @@ describe('SpinnerComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SpinnerComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
