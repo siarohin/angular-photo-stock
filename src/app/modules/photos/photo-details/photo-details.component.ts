@@ -43,6 +43,9 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   }
 
   private hasFavorites(photo: IPhoto): boolean {
+    if (!photo) {
+      return false;
+    }
     return this.favorites.some((value: IPhoto) => value.id === photo.id);
   }
 }
