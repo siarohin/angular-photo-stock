@@ -1,0 +1,9 @@
+<div class="wrapper" *ngIf="photo">
+  <mat-card class="photo" [style.background-image]="photoPath"></mat-card>
+  <mat-icon *ngIf="photo.isFavorite"class="icon">favorites</mat-icon>
+  <button mat-icon-button class="icon-button" (click)="deleteFavorites()">
+    <mat-icon class="mat-icon-button">favorite_border</mat-icon>
+    <span>Remove from favorites</span>
+  </button>
+</div>
+

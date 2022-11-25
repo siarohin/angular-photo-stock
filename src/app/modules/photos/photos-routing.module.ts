@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PhotosComponent} from './photos.component';
 import {Path} from "../../constants";
+import {PhotoDetailsComponent} from "./photo-details";
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: `${Path.Photos}/${Path.Id}`,
-    component: PhotosComponent, // TODO: TBD
+    path: Path.Id,
+    component: PhotoDetailsComponent
   }
 ];
 
