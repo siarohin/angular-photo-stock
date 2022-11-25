@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { FavoritesStoreFacade, IPhoto, IPhotoResponse, PhotoFacade } from '../../core';
 import { IntersectionStatus } from '../shared';
@@ -9,7 +9,8 @@ const LIMIT = 10;
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.scss']
+  styleUrls: ['./photos.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotosComponent implements OnInit, OnDestroy {
   private photosMap: Map<string, IPhoto> = new Map();
@@ -21,7 +22,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
 
   public photos: IPhoto[] = [];
 
-  constructor(private photoFacade: PhotoFacade, private favoritesStoreFacade: FavoritesStoreFacade) {}
+  constructor(private photoFacade: PhotoFacade, private favoritesStoreFacade: FavoritesStoreFacade, private changeDetector: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     this.load(0, LIMIT);
@@ -88,5 +89,6 @@ export class PhotosComponent implements OnInit, OnDestroy {
   private setPhotosMap(id: string, photo: IPhoto) {
       this.photosMap.set(id, photo);
       this.photos = Array.from(this.photosMap.values());
+      this.changeDetector.markForCheck();
   }
 }
