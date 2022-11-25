@@ -28,7 +28,6 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
     this.subscription.add(this.photoFacade.getById(this.photoId).subscribe((photo: IPhoto | undefined) => {
       this.photo = { ...<IPhoto>photo, isFavorite: this.hasFavorites(<IPhoto>photo) };
       this.photoPath = `url(${photo?.path.medium})`;
-      console.log(this.photo);
     }));
   }
 
