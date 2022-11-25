@@ -1,0 +1,63 @@
+@import '_styles';
+
+:host {
+  display: flex;
+  justify-content: center;
+
+  ::ng-deep .mat-button-ripple.mat-ripple {
+    position: relative;
+  }
+}
+
+.wrapper {
+  display: inline-flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  position: relative;
+  width: 30vw;
+  height: 60vh;
+}
+
+.photo {
+  width: inherit;
+  height: inherit;
+  box-sizing: border-box;
+  background-size: cover;
+}
+
+.icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  pointer-events: none;
+  color: $dark-red;
+}
+
+.icon-button {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 100%;
+  color: $black;
+  background-color: transparent;
+  border: 0.0625rem solid $green;
+  position: relative;
+  top: 2rem;
+  cursor: pointer;
+
+  &:hover:not(.active) {
+    border-color: $light-green;
+  }
+
+  &.active {
+    background-color: $green;
+  }
+
+  &.mat-icon-button {
+    border-radius: 0;
+    line-height: normal;
+  }
+}

@@ -19,6 +19,10 @@
   border: 0.0625rem solid $green;
   cursor: pointer;
 
+  &:hover:not(.active) {
+    border-color: $light-green;
+  }
+
   &.active {
     background-color: $green;
   }
@@ -26,9 +30,5 @@
   &.mat-icon-button {
     border-radius: 0;
     line-height: normal;
-  }
-
-  .icon-button-value {
-
   }
 }

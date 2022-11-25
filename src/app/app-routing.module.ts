@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: Path.Root,
     loadChildren: () => import('./modules/photos/photos.module').then((module) => module.PhotosModule),
-    pathMatch: 'full' },
+    pathMatch: 'full'
+  },
+  {
+    path: Path.Photos,
+    loadChildren: () => import('./modules/photos/photos.module').then((module) => module.PhotosModule),
+  },
   {
     path: Path.Favorites,
     loadChildren: () => import('./modules/favorites/favorites.module').then((module) => module.FavoritesModule),

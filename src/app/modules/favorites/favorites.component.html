@@ -2,3 +2,9 @@
                    [photo]="photo"
                    (navigate)="navigate($event)">
 </app-favorite-item>
+
+<div *ngIf="!(photos$ | async)" class="text-container">
+  No favorites found. Mark photo as favorites.
+</div>
+
+

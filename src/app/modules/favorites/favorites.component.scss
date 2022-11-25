@@ -1,5 +1,16 @@
+@import '_styles';
+
 :host {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: $content-height;
+  font-size: 1.5rem;
 }
