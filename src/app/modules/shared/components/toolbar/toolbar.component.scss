@@ -1,8 +1,6 @@
-@import '_styles';
-
 .toolbar {
   justify-content: center;
-  background: $gray;
+  background: var(--gray-color);
   height: 5rem;
   gap: 5rem;
 }
@@ -14,17 +12,17 @@
   justify-content: center;
   height: 3rem;
   width: 10rem;
-  color: $black;
+  color: var(--black-color);
   background-color: transparent;
-  border: 0.0625rem solid $green;
+  border: 0.0625rem solid var(--green-color);
   cursor: pointer;
 
   &:hover:not(.active) {
-    border-color: $light-green;
+    border-color: var(--light-green-color);
   }
 
   &.active {
-    background-color: $green;
+    background-color: var(--green-color);
   }
 
   &.mat-icon-button {

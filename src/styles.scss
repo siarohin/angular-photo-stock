@@ -1,3 +1,15 @@
+:root {
+  --gray-color: #677c77;
+  --green-color: #445f3b;
+  --light-green-color: #8ea076;
+  --black-color: #000000;
+  --dark-blue-color: #2c2f3c;
+  --ice-blue-color: #e0efea;
+  --dark-red-color: #a52a2a;
+
+  --content-height: calc(100vh - 7rem);
+}
+
 html,
 body {
   height: 100%;

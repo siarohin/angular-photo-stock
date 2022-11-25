@@ -1,12 +1,10 @@
-@import '_styles';
-
 :host {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: $dark-blue;
+  background: var(--dark-blue-color);
   opacity: 0.5;
   display: flex;
   align-content: center;
@@ -27,8 +25,8 @@
   height: 6.4rem;
   margin: 0.8rem;
   border-radius: 50%;
-  border: 0.6rem solid $ice-blue;
-  border-color: $ice-blue transparent $ice-blue transparent;
+  border: 0.6rem solid var(--ice-blue-color);
+  border-color: var(--ice-blue-color) transparent var(--ice-blue-color) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 

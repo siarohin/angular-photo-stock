@@ -1,5 +1,3 @@
-@import '_styles';
-
 :host {
   position: relative;
 }
@@ -23,6 +21,6 @@
   pointer-events: none;
 
   &.active {
-    color: $dark-red;
+    color: var(--dark-red-color);
   }
 }
