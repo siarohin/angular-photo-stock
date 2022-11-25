@@ -1,4 +1,2 @@
-<mat-card class="photo" [style.background-image]="photoPath" (click)="onDetailsClick()"></mat-card>
-<button mat-icon-button class="icon-button" [class.active]="photo.isFavorite" (click)="onFavoritesClick()">
-  <mat-icon>favorites</mat-icon>
-</button>
+<mat-card class="photo" [style.background-image]="photoPath" (click)="onFavoritesClick()"></mat-card>
+<mat-icon class="icon" [class.active]="photo.isFavorite">favorites</mat-icon>

@@ -22,13 +22,8 @@ export class PhotoItemComponent {
   }
 
   @Output() public onFavorites = new EventEmitter<IPhoto>();
-  @Output() public onDetails = new EventEmitter<IPhoto>();
 
   public onFavoritesClick(): void {
     this.onFavorites.emit(this.photo);
-  }
-
-  public onDetailsClick(): void {
-    this.onDetails.emit(this.photo);
   }
 }

@@ -58,10 +58,6 @@ export class PhotosComponent implements OnInit, OnDestroy {
     }
   }
 
-  public navigateToDetails(photo: IPhoto): void {
-    // TODO: TBD
-  }
-
   public trackByFn(_: number, item: IPhoto): string {
     return item.id;
   }
