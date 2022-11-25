@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {IPhoto} from "../../../core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { IPhoto } from '../../../core';
 
 @Component({
   selector: 'app-favorite-item',

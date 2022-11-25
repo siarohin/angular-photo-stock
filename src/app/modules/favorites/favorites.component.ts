@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {FavoritesStoreFacade, IPhoto} from '../../core';
-import {Observable, share} from "rxjs";
-import {Path} from "../../constants";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FavoritesStoreFacade, IPhoto } from '../../core';
+import { Observable, share } from 'rxjs';
+import { Path } from '../../constants';
 
 @Component({
   selector: 'app-favorites',

@@ -1,14 +1,11 @@
-import {Injectable} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {IPhoto} from '../../models';
-import {AppState} from '../app-state';
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IPhoto } from '../../models';
+import { AppState } from '../app-state';
 import * as FavoritesActions from './favorites.actions';
-import {selectPhotos} from './favorites.selectors';
+import { selectPhotos } from './favorites.selectors';
 
-/**
- * Favorites Facade service
- */
 @Injectable()
 export class FavoritesStoreFacade {
   private store: Store<AppState>;

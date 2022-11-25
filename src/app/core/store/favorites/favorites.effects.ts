@@ -1,15 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {Action} from '@ngrx/store';
-import {Observable, of} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import * as FavoritesActions from './favorites.actions';
-import {StorageFacade} from '../../facades';
-import {IPhoto} from '../../models';
+import { StorageFacade } from '../../facades';
+import { IPhoto } from '../../models';
 
-/**
- * Favorites effects
- */
 @Injectable()
 export class FavoritesEffects {
   public loadFavorites$: Observable<Action>;

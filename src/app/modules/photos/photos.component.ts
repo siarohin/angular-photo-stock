@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {take} from 'rxjs/operators';
-import {FavoritesStoreFacade, IPhoto, IPhotoResponse, PhotoFacade} from '../../core';
-import {IntersectionStatus} from '../shared';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { FavoritesStoreFacade, IPhoto, IPhotoResponse, PhotoFacade } from '../../core';
+import { IntersectionStatus } from '../shared';
+import { Subscription } from 'rxjs';
 
 const LIMIT = 10;
 

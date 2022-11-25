@@ -1,4 +1,4 @@
-import {FavoritesState} from './favorites';
+import { FavoritesState } from './favorites';
 
 export interface AppState {
   favorites: FavoritesState;

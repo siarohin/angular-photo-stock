@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {delay, map, tap} from 'rxjs/operators';
-import {IPhoto, IPhotoResponse} from "../models";
-import {PhotoService, SpinnerService} from "../services";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { delay, map, tap } from 'rxjs/operators';
+import { IPhoto, IPhotoResponse } from '../models';
+import { PhotoService, SpinnerService } from '../services';
 
 /** Emulate real-world API with random delay of range in ms **/
 const MIN_DELAY = 200;

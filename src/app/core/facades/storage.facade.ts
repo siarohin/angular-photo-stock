@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {IStorage, ValueOf} from '../models';
+import { Injectable } from '@angular/core';
+import { IStorage, ValueOf } from '../models';
 
 const STORAGE_KEY = 'angular-photo-stock';
 
