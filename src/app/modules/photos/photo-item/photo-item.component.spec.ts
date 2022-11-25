@@ -1,6 +1,7 @@
-import {TestBed} from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {PhotoItemComponent} from './photo-item.component';
+import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { PhotoItemComponent } from './photo-item.component';
 
 describe('PhotoItemComponent', () => {
   beforeEach(async () => {
@@ -11,6 +12,7 @@ describe('PhotoItemComponent', () => {
       declarations: [
         PhotoItemComponent
       ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
